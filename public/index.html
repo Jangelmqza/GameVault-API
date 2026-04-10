@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameVault | Retro Gaming API</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="scanlines"></div>
+    
+    <header>
+        <div class="container">
+            <h1 class="glitch" data-text="GAMEVAULT">GAMEVAULT</h1>
+            <p class="subtitle">EXPLORE THE ARCADE UNIVERSE</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Dashboard Stats -->
+        <section id="stats-dashboard" class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-value" id="total-games">0</span>
+                <span class="stat-label">GAMES</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value" id="total-genres">0</span>
+                <span class="stat-label">GENRES</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value" id="total-platforms">0</span>
+                <span class="stat-label">PLATFORMS</span>
+            </div>
+        </section>
+
+        <!-- Search and Filters -->
+        <section class="filters-section">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="SEARCH GAME...">
+                <div class="neon-line"></div>
+            </div>
+            
+            <div class="filters-grid">
+                <select id="genre-filter">
+                    <option value="">ALL GENRES</option>
+                </select>
+                <select id="platform-filter">
+                    <option value="">ALL PLATFORMS</option>
+                </select>
+                <select id="year-filter">
+                    <option value="">ALL YEARS</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Games Grid -->
+        <section id="games-container" class="games-grid">
+            <!-- Cards will be injected here -->
+            <div class="loading-message">INITIALIZING SYSTEM...</div>
+        </section>
+
+        <!-- Pagination -->
+        <section class="pagination">
+            <button id="prev-btn" class="btn-neon" disabled>PREV</button>
+            <span id="page-info">PAGE 1 / 1</span>
+            <button id="next-btn" class="btn-neon">NEXT</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>INSERT COIN TO CONTINUE &copy; 2026 GAMEVAULT API</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
