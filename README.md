@@ -85,6 +85,7 @@ Para más detalles sobre los derechos de uso o distribución, revisa directament
  * Desarrollado con ❤️ para la comunidad gaming.
  * Si te ha gustado o servido este proyecto de API, ¡no olvides darle una estrella ⭐ en GitHub!
  * Comparte el repositorio con otros desarrolladores interesados en las APIs RESTful y el desarrollo Vanilla.
+
 ⌨️ con ❤️ por Jose Angel Márquez Ramírez utilizando la plantilla de Villanuevand 😊
 ```
 
