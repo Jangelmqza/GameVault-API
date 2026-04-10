@@ -3,6 +3,10 @@
 
 GameVault es una API RESTful inspirada en la arquitectura de la API de Rick and Morty, diseñada para entusiastas de los videojuegos que buscan datos estructurados sobre títulos clásicos y modernos. Además, el proyecto incluye un cliente web interactivo para el Frontend con estética **Cyberpunk / Retro-Gaming**, efectos visuales como scanlines y búsqueda en tiempo real.
 
+![Status](https://img.shields.io/badge/Status-Beta-cyan)
+![Node](https://img.shields.io/badge/Node-20.0+-green)
+![DB](https://img.shields.io/badge/Database-SQLite-blue)
+
 🌐 **Demo en vivo:** [https://gamevault-api-2l4o.onrender.com](https://gamevault-api-2l4o.onrender.com)
 
 ## Comenzando 🚀
