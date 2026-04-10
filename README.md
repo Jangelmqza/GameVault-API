@@ -86,7 +86,11 @@ Para más detalles sobre los derechos de uso o distribución, revisa directament
  * Si te ha gustado o servido este proyecto de API, ¡no olvides darle una estrella ⭐ en GitHub!
  * Comparte el repositorio con otros desarrolladores interesados en las APIs RESTful y el desarrollo Vanilla.
 
-⌨️ con ❤️ por Jose Angel Márquez Ramírez utilizando la plantilla de Villanuevand 😊
+### 👤 Autor
+**Jose Angel Márquez Ramírez**
+* Estudiante en UPAEP 🦅
+* GitHub: [@Jangelmqza](https://github.com/Jangelmqza)
+* Instagram: [@jangel_mqz](https://www.instagram.com/jangel_mqz?igsh=MWVocnBld2VqMzJnNA%3D%3D&utm_source=qr)
 ```
 
 ```
