@@ -341,3 +341,167 @@ footer {
     h1.glitch { font-size: 2rem; }
     .filters-grid { grid-template-columns: 1fr; }
 }
+
+/* =========================================
+   PORTADAS Y MODAL (RAWG API)
+   ========================================= */
+
+/* Estilos de la portada dentro de la tarjeta */
+.game-card {
+    /* Permitir posicionar la portada absoluta respecto a la card */
+    position: relative;
+    /* La altura se ajustará dinámicamente o por contenido, pero le damos un min-height si es necesario */
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 1;
+    transition: all 0.5s ease-in-out;
+    filter: grayscale(80%) brightness(0.3);
+}
+
+.game-card-info {
+    position: relative;
+    z-index: 2; /* Para que el texto esté por encima de la portada */
+    background: linear-gradient(to top, rgba(18, 18, 18, 1) 60%, rgba(18, 18, 18, 0.8) 100%);
+    height: 100%;
+    flex-grow: 1;
+    transition: background 0.5s ease-in-out;
+}
+
+.game-card:hover .card-cover {
+    opacity: 1;
+    transform: scale(1.05); /* Efecto parallax sutil */
+    filter: grayscale(0%) brightness(0.6);
+}
+
+.game-card:hover .game-card-info {
+    background: linear-gradient(to top, rgba(18, 18, 18, 0.95) 20%, rgba(18, 18, 18, 0.2) 100%);
+}
+
+/* Modal de portada a pantalla completa */
+.cover-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.cover-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    background: var(--card-bg);
+    border: 2px solid var(--neon-magenta);
+    box-shadow: 0 0 30px rgba(255, 0, 255, 0.4);
+    border-radius: 8px;
+    overflow: hidden;
+    transform: scale(0.8);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+}
+
+.cover-modal.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: var(--neon-cyan);
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+    text-shadow: 0 0 10px var(--neon-cyan);
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: var(--neon-magenta);
+    text-shadow: 0 0 10px var(--neon-magenta);
+}
+
+.modal-image {
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-bottom: 2px solid #333;
+}
+
+.modal-info {
+    padding: 2rem;
+}
+
+.modal-title {
+    font-family: var(--font-gaming);
+    font-size: 1.5rem;
+    color: var(--neon-cyan);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 5px var(--neon-cyan);
+}
+
+.modal-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.modal-meta span {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    border: 1px solid #444;
+}
+
+/* Skeleton Loader Animado (Shimmer) */
+.skeleton-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+    z-index: 0;
+    border-radius: inherit;
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}

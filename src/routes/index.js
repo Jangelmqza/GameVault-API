@@ -11,4 +11,11 @@ router.use('/platform', platformRoutes);
 router.use('/game', gameRoutes);
 router.use('/year', yearRoutes);
 
+// Endpoint para configuraciones (ej: API Keys)
+router.get('/config', (req, res) => {
+    res.json({
+        rawgApiKey: process.env.RAWG_API_KEY || ''
+    });
+});
+
 module.exports = router;

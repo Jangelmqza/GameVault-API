@@ -80,6 +80,17 @@ El proyecto incluye un cliente web interactivo con:
 - Efectos de **Scanlines y Glitch**.
 - **Búsqueda en tiempo real** con Debounce.
 - **Dashboard de estadísticas** dinámico.
+- 🖼️ **Portadas Dinámicas de Juegos** usando la RAWG API.
+
+### Configuración de Portadas (RAWG API)
+El frontend obtiene automáticamente las portadas de los juegos en tiempo real haciendo "hover" sobre las tarjetas (y al hacer clic en ellas se abre un modal).
+Para que esto funcione, necesitas una **API Key gratuita** de RAWG:
+1. Regístrate en [rawg.io/apidocs](https://rawg.io/apidocs).
+2. Obtén tu clave (API Key).
+3. Renombra (o edita) el archivo `.env` en la raíz del proyecto y agrega:
+   ```env
+   RAWG_API_KEY=tu_api_key_aqui
+   ```
 
 ---
 

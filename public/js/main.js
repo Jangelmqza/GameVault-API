@@ -156,7 +156,9 @@ function renderGames(games) {
     }
 
     gamesContainer.innerHTML = games.map(game => `
-        <article class="game-card">
+        <article class="game-card" data-name="${game.name}" data-info="${encodeURIComponent(JSON.stringify(game))}">
+            <div class="skeleton-loader"></div>
+            <div class="card-cover"></div>
             <div class="game-card-info">
                 <h3 class="game-card-title">${game.name}</h3>
                 <div class="game-meta">
@@ -173,6 +175,13 @@ function renderGames(games) {
             </div>
         </article>
     `).join('');
+
+    if (typeof setupCardEvents === 'function') {
+        setupCardEvents();
+    }
+    if (window.coversAPI) {
+        window.coversAPI.preloadCovers(games);
+    }
 }
 
 /**
@@ -202,3 +211,75 @@ function debounce(func, wait) {
         timeout = setTimeout(later, wait);
     };
 }
+
+/**
+ * Lógica de Portadas y Modal
+ */
+const coverModal = document.getElementById('cover-modal');
+const modalClose = document.getElementById('modal-close');
+const modalImage = document.getElementById('modal-image');
+const modalTitle = document.getElementById('modal-title');
+const modalMeta = document.getElementById('modal-meta');
+
+function setupCardEvents() {
+    const cards = document.querySelectorAll('.game-card');
+    cards.forEach(card => {
+        // Evento Hover para cargar portada
+        card.addEventListener('mouseenter', async () => {
+            const coverDiv = card.querySelector('.card-cover');
+            const skeleton = card.querySelector('.skeleton-loader');
+            const gameName = card.getAttribute('data-name');
+            
+            // Si ya cargó la imagen, no hacer nada
+            if (coverDiv.style.backgroundImage) return;
+
+            try {
+                const coverUrl = await window.coversAPI.getCover(gameName);
+                coverDiv.style.backgroundImage = `url('${coverUrl}')`;
+                if(skeleton) skeleton.style.display = 'none';
+            } catch(e) {
+                console.error(e);
+            }
+        });
+
+        // Evento Click para abrir Modal
+        card.addEventListener('click', async () => {
+            const gameName = card.getAttribute('data-name');
+            const gameData = JSON.parse(decodeURIComponent(card.getAttribute('data-info')));
+            
+            modalTitle.textContent = gameData.name;
+            modalMeta.innerHTML = `
+                <span>${gameData.year}</span>
+                <span style="color: var(--neon-yellow)">★ ${gameData.rating}</span>
+                <span>DEV: ${gameData.developer}</span>
+                <span>GENRE: ${gameData.genre_name || 'ACTION'}</span>
+            `;
+            
+            // Mostrar modal y cargar imagen principal
+            coverModal.classList.add('active');
+            const coverUrl = await window.coversAPI.getCover(gameName);
+            modalImage.style.backgroundImage = `url('${coverUrl}')`;
+        });
+    });
+}
+
+// Cerrar Modal
+function closeModal() {
+    if (coverModal) coverModal.classList.remove('active');
+}
+
+if (modalClose) modalClose.addEventListener('click', closeModal);
+
+if (coverModal) {
+    coverModal.addEventListener('click', (e) => {
+        if (e.target === coverModal) {
+            closeModal();
+        }
+    });
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && coverModal && coverModal.classList.contains('active')) {
+        closeModal();
+    }
+});
