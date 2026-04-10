@@ -7,7 +7,10 @@ GameVault es una API RESTful inspirada en la arquitectura de la API de Rick and 
 ![Node](https://img.shields.io/badge/Node-20.0+-green)
 ![DB](https://img.shields.io/badge/Database-SQLite-blue)
 
-🌐 **Demo en vivo:** [https://gamevault-api-2l4o.onrender.com](https://gamevault-api-2l4o.onrender.com)
+🌐 **Demo en vivo:** 
+```
+[https://gamevault-api-2l4o.onrender.com](https://gamevault-api-2l4o.onrender.com)
+```
 
 ## Comenzando 🚀
 
