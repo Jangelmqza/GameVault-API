@@ -9,7 +9,7 @@ GameVault es una API RESTful inspirada en la arquitectura de la API de Rick and 
 
 🌐 **Demo en vivo:** 
 ```
-[https://gamevault-api-2l4o.onrender.com](https://gamevault-api-2l4o.onrender.com)
+https://gamevault-api-2l4o.onrender.com
 ```
 
 ## Comenzando 🚀
