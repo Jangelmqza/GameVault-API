@@ -1,4 +1,4 @@
-[# 🎮 GameVault API
+# 🎮 GameVault API
 
 GameVault es una API RESTful inspirada en la arquitectura de la API de Rick and Morty, diseñada para entusiastas de los videojuegos que buscan datos estructurados sobre títulos clásicos y modernos. Además, el proyecto incluye un cliente web interactivo para el Frontend con estética **Cyberpunk / Retro-Gaming**, efectos visuales como scanlines y búsqueda en tiempo real.
 
@@ -99,6 +99,3 @@ Para más detalles sobre los derechos de uso o distribución, revisa directament
 * Estudiante en UPAEP 🦅
 * GitHub: [@Jangelmqza](https://github.com/Jangelmqza)
 * Instagram: [@jangel_mqz](https://www.instagram.com/jangel_mqz?igsh=MWVocnBld2VqMzJnNA%3D%3D&utm_source=qr)
-```
-
-```](https://github.com/Jangelmqza/GameVault-API)
