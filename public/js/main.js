@@ -30,6 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
     loadInitialData();
     fetchGames();
     
+    // Inicializar Easter Eggs
+    if (window.Cheats) {
+        window.Cheats.init();
+    }
+    
     // Event Listeners
     searchInput.addEventListener('input', debounce(() => {
         state.filters.name = searchInput.value;

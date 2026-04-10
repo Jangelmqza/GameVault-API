@@ -94,6 +94,26 @@ Para que esto funcione, necesitas una **API Key gratuita** de RAWG:
 
 ---
 
+## 🕹️ Easter Eggs & Cheat Console
+El sistema incluye una consola de depuración secreta y varios trucos visuales.
+
+### Cómo abrir la consola
+Presiona la tecla **`` ` `` (backtick)** o **`~`** para abrir el panel de comandos.
+
+### Comandos y Secuencias
+| Combinación / Comando | Efecto |
+|---|---|
+| `↑ ↑ ↓ ↓ ← → ← → B A` | **MODO OVERDRIVE**: Colores neón, scanlines intensas y sonido 8-bit. |
+| `IDKFA` | **MODO DOOM**: Paleta de colores rojo y negro. |
+| `NOCLIP` | **MODO FANTASMA**: Las tarjetas se vuelven semi-transparentes. |
+| `GODMODE` | **LLUVIA DE CONFETTI**: Lluvia de emojis gaming. |
+| `IDDQD` | **FLIP**: Voltea la pantalla 180°. |
+| `MATRIX` | **MATRIX RAIN**: Lluvia de caracteres estilo Matrix (10s). |
+| `HOWDOI` | **CRÉDITOS**: Muestra información del equipo de desarrollo. |
+| **10 Clicks en el Logo** | **GLITCH OVERLOAD**: El logo entra en un estado de glitch extremo. |
+
+---
+
 ## 🛠️ Instalación y Uso
 
 1. Clonar el repositorio.

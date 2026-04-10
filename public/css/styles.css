@@ -505,3 +505,146 @@ footer {
     0% { background-position: -200% 0; }
     100% { background-position: 200% 0; }
 }
+
+/* =========================================
+   CHEAT CONSOLE & EFFECTS
+   ========================================= */
+
+/* Consola Debug */
+.cheat-console {
+    position: fixed;
+    bottom: -300px;
+    right: 20px;
+    width: 350px;
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid var(--neon-cyan);
+    box-shadow: 0 0 20px var(--neon-cyan);
+    color: var(--neon-cyan);
+    font-family: 'Courier New', Courier, monospace;
+    padding: 15px;
+    z-index: 10001;
+    transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 5px 5px 0 0;
+}
+
+.cheat-console.open {
+    bottom: 0;
+}
+
+.console-header {
+    font-size: 0.7rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.console-body {
+    font-size: 0.8rem;
+}
+
+.input-line {
+    margin-bottom: 15px;
+    color: white;
+}
+
+.cursor {
+    animation: blink 0.8s infinite;
+}
+
+.commands-list {
+    font-size: 0.65rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* Banners de Trucos */
+.cheat-banner {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    border: 3px solid var(--neon-magenta);
+    color: var(--neon-magenta);
+    padding: 1rem 2rem;
+    font-family: var(--font-gaming);
+    font-size: 1.2rem;
+    z-index: 10002;
+    text-align: center;
+    box-shadow: 0 0 30px var(--neon-magenta);
+    pointer-events: none;
+    animation: bannerIn 0.5s ease-out;
+}
+
+@keyframes bannerIn {
+    0% { transform: translate(-50%, -150%) scale(0.5); opacity: 0; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* Clases de Efectos Globales */
+body.overdrive {
+    animation: screenShake 0.1s infinite;
+    filter: hue-rotate(90deg) contrast(1.5);
+}
+
+body.overdrive .scanlines {
+    background-size: 100% 2px, 2px 100%;
+    opacity: 0.6;
+}
+
+body.dark-doom {
+    --bg-color: #0a0000;
+    --card-bg: #1a0000;
+    --neon-cyan: #ff0000;
+    --neon-magenta: #550000;
+    --text-primary: #ff4444;
+}
+
+body.dark-doom .game-card:hover {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+body.noclip .game-card {
+    opacity: 0.3;
+}
+
+body.flipped #app, body.flipped .container, body.flipped header {
+    transform: rotate(180deg);
+}
+
+body.flipped {
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Matrix Canvas */
+.matrix-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Confetti */
+.confetti-piece {
+    position: fixed;
+    top: -50px;
+    z-index: 10003;
+    animation: fall linear forwards;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    to { transform: translateY(110vh) rotate(360deg); }
+}
+
+@keyframes screenShake {
+    0% { transform: translate(0,0); }
+    25% { transform: translate(2px, 2px); }
+    50% { transform: translate(-2px, -2px); }
+    75% { transform: translate(2px, -2px); }
+    100% { transform: translate(0,0); }
+}
