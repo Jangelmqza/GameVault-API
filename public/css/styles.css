@@ -507,144 +507,189 @@ footer {
 }
 
 /* =========================================
-   CHEAT CONSOLE & EFFECTS
+   CHEAT CONSOLE & EFFECTS (ADVANCED)
    ========================================= */
 
-/* Consola Debug */
-.cheat-console {
-    position: fixed;
-    bottom: -300px;
-    right: 20px;
-    width: 350px;
-    background: rgba(0, 0, 0, 0.9);
-    border: 2px solid var(--neon-cyan);
-    box-shadow: 0 0 20px var(--neon-cyan);
-    color: var(--neon-cyan);
-    font-family: 'Courier New', Courier, monospace;
-    padding: 15px;
-    z-index: 10001;
-    transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border-radius: 5px 5px 0 0;
-}
-
-.cheat-console.open {
-    bottom: 0;
-}
-
-.console-header {
+/* Footer Hint */
+.cheat-hint {
+    margin-top: 2rem;
     font-size: 0.7rem;
-    border-bottom: 1px solid #333;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.console-body {
-    font-size: 0.8rem;
-}
-
-.input-line {
-    margin-bottom: 15px;
-    color: white;
-}
-
-.cursor {
-    animation: blink 0.8s infinite;
-}
-
-.commands-list {
-    font-size: 0.65rem;
-    color: #666;
-    line-height: 1.4;
-}
-
-/* Banners de Trucos */
-.cheat-banner {
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.8);
-    border: 3px solid var(--neon-magenta);
-    color: var(--neon-magenta);
-    padding: 1rem 2rem;
-    font-family: var(--font-gaming);
-    font-size: 1.2rem;
-    z-index: 10002;
+    color: #444;
     text-align: center;
-    box-shadow: 0 0 30px var(--neon-magenta);
-    pointer-events: none;
-    animation: bannerIn 0.5s ease-out;
+    font-family: var(--font-gaming);
+    animation: hintPulse 3s infinite;
 }
 
-@keyframes bannerIn {
-    0% { transform: translate(-50%, -150%) scale(0.5); opacity: 0; }
-    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+.cheat-hint kbd {
+    background: #222;
+    border: 1px solid #444;
+    border-radius: 3px;
+    padding: 2px 6px;
+    color: var(--neon-cyan);
+    box-shadow: 0 2px 0 #000;
 }
 
-/* Clases de Efectos Globales */
-body.overdrive {
-    animation: screenShake 0.1s infinite;
-    filter: hue-rotate(90deg) contrast(1.5);
+@keyframes hintPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; text-shadow: 0 0 5px var(--neon-cyan); }
 }
 
-body.overdrive .scanlines {
-    background-size: 100% 2px, 2px 100%;
-    opacity: 0.6;
-}
-
-body.dark-doom {
-    --bg-color: #0a0000;
-    --card-bg: #1a0000;
-    --neon-cyan: #ff0000;
-    --neon-magenta: #550000;
-    --text-primary: #ff4444;
-}
-
-body.dark-doom .game-card:hover {
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
-}
-
-body.noclip .game-card {
-    opacity: 0.3;
-}
-
-body.flipped #app, body.flipped .container, body.flipped header {
-    transform: rotate(180deg);
-}
-
-body.flipped {
-    transition: transform 0.5s ease-in-out;
-}
-
-/* Matrix Canvas */
-.matrix-canvas {
+/* Console Overlay */
+.console-overlay {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    pointer-events: none;
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
+    z-index: 10000;
+    display: none;
 }
+
+.console-overlay.visible {
+    display: block;
+}
+
+/* Cheat Console */
+.cheat-console {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(5, 5, 5, 0.95);
+    border-top: 2px solid var(--neon-cyan);
+    box-shadow: 0 -10px 30px rgba(0, 243, 255, 0.2);
+    padding: 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    z-index: 10001;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.cheat-console.open {
+    transform: translateY(0);
+    animation: consoleGlitch 0.3s ease-out;
+}
+
+@keyframes consoleGlitch {
+    0% { transform: translateY(100%) skewX(10deg); filter: hue-rotate(90deg); }
+    50% { transform: translateY(0) skewX(-5deg); }
+    100% { transform: translateY(0) skewX(0); }
+}
+
+.console-header {
+    color: var(--neon-cyan);
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+.input-row {
+    color: #fff;
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.badges-container {
+    display: flex;
+    gap: 0.5rem;
+    min-height: 30px;
+}
+
+.key-badge {
+    background: #222;
+    border: 1px solid #444;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    animation: badgeIn 0.2s ease-out;
+}
+
+.key-badge.success {
+    background: rgba(0, 255, 0, 0.2);
+    border-color: #0f0;
+    color: #0f0;
+    box-shadow: 0 0 10px #0f0;
+    animation: flashSuccess 0.5s ease-out;
+}
+
+@keyframes badgeIn {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes flashSuccess {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.commands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    color: #666;
+}
+
+.cmd span { color: var(--neon-magenta); margin-left: 0.5rem; }
+
+/* Reset Button */
+.reset-effects-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #000;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 10px 20px;
+    font-family: var(--font-gaming);
+    font-size: 0.7rem;
+    cursor: pointer;
+    z-index: 10005;
+    animation: neonBlink 1.5s infinite;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.reset-effects-btn.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+@keyframes neonBlink {
+    0%, 100% { border-color: #fff; box-shadow: 0 0 5px #fff; }
+    50% { border-color: var(--neon-cyan); box-shadow: 0 0 15px var(--neon-cyan); }
+}
+
+/* Efectos de Body */
+body.overdrive { animation: screenShake 0.1s infinite; filter: hue-rotate(90deg) saturate(2); }
+body.dark-doom { --bg-color: #050000; --card-bg: #150000; --neon-cyan: #ff0000; --text-primary: #ff4444; }
+body.noclip .game-card { opacity: 0.25; filter: blur(1px) grayscale(1); }
+body.flipped { transition: transform 0.5s ease-in-out; }
+body.flipped .container, body.flipped header { transform: rotate(180deg); }
+
+/* Matrix Canvas */
+.matrix-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; pointer-events: none; transition: opacity 1s; }
+.matrix-canvas.fade-out { opacity: 0; }
 
 /* Confetti */
-.confetti-piece {
-    position: fixed;
-    top: -50px;
-    z-index: 10003;
-    animation: fall linear forwards;
-    pointer-events: none;
-}
-
-@keyframes fall {
-    to { transform: translateY(110vh) rotate(360deg); }
-}
+.confetti-piece { position: fixed; top: -50px; z-index: 10003; animation: fall linear forwards; pointer-events: none; font-size: 2rem; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
 
 @keyframes screenShake {
     0% { transform: translate(0,0); }
-    25% { transform: translate(2px, 2px); }
-    50% { transform: translate(-2px, -2px); }
-    75% { transform: translate(2px, -2px); }
+    25% { transform: translate(3px, 3px); }
+    50% { transform: translate(-3px, -3px); }
+    75% { transform: translate(3px, -3px); }
     100% { transform: translate(0,0); }
+}
+
+.mega-glitch {
+    animation: glitch-anim 0.05s infinite !important;
 }
