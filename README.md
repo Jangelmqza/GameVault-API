@@ -135,9 +135,6 @@ Las tecnologías principales utilizadas para crear este proyecto fueron:
  * **RAWG API** - Servicio de terceros utilizado de manera asíncrona para obtener el arte de portada de cada título.
 ## Autores ✒️
  * **Jose Angel Márquez Ramírez (Jangelmqza)** - *Desarrollo Completo* - Jangelmqza
-También puedes mirar la lista de todos los contribuyentes que han participado en este proyecto.
-## Licencia 📄
-Para más detalles sobre los derechos de uso o distribución, revisa directamente el repositorio del código fuente.
 ## Expresiones de Gratitud 🎁
  * Desarrollado con ❤️ para la comunidad gaming.
  * Si te ha gustado o servido este proyecto de API, ¡no olvides darle una estrella ⭐ en GitHub!
