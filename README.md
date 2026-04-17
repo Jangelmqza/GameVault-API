@@ -8,6 +8,20 @@ GameVault es una API RESTful inspirada en la arquitectura de la API de Rick and 
   <img src="https://img.shields.io/badge/Database-SQLite-blue" alt="DB">
 </p>
 
+##📂 Estructura del Proyecto
+'''text
+GameVault-API/
+├── src/
+│   ├── controllers/    # Lógica de las rutas
+│   ├── routes/         # Definición de endpoints
+│   ├── models/         # Consultas a SQLite (better-sqlite3)
+│   ├── seed/           # Scripts de población de DB
+│   └── public/         # Frontend (Vanilla JS, CSS, HTML)
+├── .env.example        # Plantilla para variables de entorno
+├── database.sqlite     # Base de datos (ignorada en git o incluida si es seed)
+└── server.js           # Punto de entrada de la aplicación
+
+
 ## 🚀 Base URL
 ```
 http://localhost:3000/api
