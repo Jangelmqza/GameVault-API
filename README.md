@@ -9,7 +9,8 @@ GameVault es una API RESTful inspirada en la arquitectura de la API de Rick and 
 </p>
 
 ##📂 Estructura del Proyecto
-'''text
+
+```text
 GameVault-API/
 ├── src/
 │   ├── controllers/    # Lógica de las rutas
